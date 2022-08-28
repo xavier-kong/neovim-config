@@ -48,6 +48,8 @@ Plug 'farmergreg/vim-lastplace'
 
 Plug 'wellle/context.vim'
 " https://github.com/wellle/context.vim
+"
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
@@ -68,6 +70,7 @@ let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#formatter='unique_tail'
 let NERDTreeQuitOnOpen=1
 let g:NERDTreeWinPos = "right"
+let g:NERDTreeShowHidden=1
 let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
 let g:minimap_auto_start=1
 let g:minimap_highlight_range=1

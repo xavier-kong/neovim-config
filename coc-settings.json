@@ -1,5 +1,5 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["typescriptreact", "json", "javascriptreact", "typescript.tsx"],
+    "coc.preferences.formatOnSaveFiletypes": ["json", "javascriptreact"],
     "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
     "coc.preferences.diagnostic.virtualText": true,
     "prettier.disableLanguages": ["javascript", "typescript"]
