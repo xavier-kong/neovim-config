@@ -76,6 +76,11 @@ let g:minimap_auto_start=1
 let g:minimap_highlight_range=1
 let g:minimap_highlight_search=1
 
+let g:go_diagnostics_enabled=0
+let g:go_metalinter_enabled = []
+let g:go_diagnostics_level=2
+let g:go_highlight_trailing_whitespace_error=1
+
 nnoremap <C-q> :q!<CR>
 nnoremap <F4> :bd<CR>
 nnoremap <F5> :NERDTreeToggle<CR>

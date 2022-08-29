@@ -1,6 +1,16 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["json", "javascriptreact"],
+    "coc.preferences.formatOnSaveFiletypes": ["json", "javascriptreact", "go"],
     "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
     "coc.preferences.diagnostic.virtualText": true,
-    "prettier.disableLanguages": ["javascript", "typescript"]
+    "prettier.disableLanguages": ["javascript", "typescript"],
+      "languageserver": {
+        "golang": {
+          "command": "gopls",
+          "rootPatterns": ["go.mod"],
+          "filetypes": ["go"]
+        }
+      },
+      "go.goplsOptions": {
+        "staticcheck": true
+      }
   }
