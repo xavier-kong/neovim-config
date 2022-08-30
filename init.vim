@@ -16,6 +16,9 @@ syntax on
 set spell " enable spell check (may need to download language package)
 set ttyfast " Speed up scrolling in Vim
 set updatetime=100
+
+set shiftwidth=4
+set tabstop=4
 " Plugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
@@ -79,7 +82,6 @@ let g:minimap_highlight_search=1
 let g:go_diagnostics_enabled=0
 let g:go_metalinter_enabled = []
 let g:go_diagnostics_level=2
-let g:go_highlight_trailing_whitespace_error=1
 
 nnoremap <C-q> :q!<CR>
 nnoremap <F4> :bd<CR>
