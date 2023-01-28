@@ -37,14 +37,14 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'yuezk/vim-js'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'peitalin/vim-jsx-typescript', { 'for': ['jsx', 'typescript'] }
+Plug 'yuezk/vim-js', { 'for': ['js', 'javascript'] }
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Pocco81/AutoSave.nvim'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': ['js', 'javascript'] }
 Plug 'axelf4/vim-strip-trailing-whitespace'
 " Plug 'wfxr/minimap.vim'
 Plug 'farmergreg/vim-lastplace'
@@ -52,7 +52,10 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'wellle/context.vim'
 " https://github.com/wellle/context.vim
 "
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
+
+Plug 'dstein64/vim-startuptime'
+"" https://github.com/dstein64/vim-startuptime
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
