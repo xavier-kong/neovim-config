@@ -30,11 +30,18 @@ require('packer').startup(function(use)
 	use ({
 		'Pocco81/auto-save.nvim',
 		config = function()
-			require("auto-save").setup {
-
-			}
-		end
+			require("auto-save").setup()
+		end,
 	})
+
+	--[[use {
+	  "startup-nvim/startup.nvim",
+	  requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+	  config = function()
+		require("startup").setup { theme = "dashboard", enabled = false }
+	  end,
+	}]]
+	-- telescope, plenary
 end)
 
 vim.api.nvim_exec(
@@ -42,7 +49,6 @@ vim.api.nvim_exec(
 	" Options
 	filetype plugin indent on   " Allow auto-indenting depending on file type
 	syntax on
-	set ttyfast " Speed up scrolling in Vim
 
 	let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
 
@@ -61,6 +67,9 @@ vim.api.nvim_exec(
 
 ]],
 true)
+
+-- speed up scrolling in vim
+vim.o.ttyfast = true
 
 -- Modifies the auto-complete menu to behave more like an IDE.
 vim.o.completeopt = 'noinsert,menuone,noselect'
