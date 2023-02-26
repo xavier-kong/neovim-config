@@ -115,6 +115,8 @@ vim.api.nvim_exec(
 		  \ coc#pum#visible() ? coc#pum#next(1) :
 		  \ CheckBackspace() ? "\<Tab>" :
 		  \ coc#refresh()
+
+	inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 ]],
 true)
 
@@ -172,8 +174,8 @@ colorscheme gruvbox
 ]],
 true)
 
-vim.g.gruvbox_transparent_bg='0'
-vim.g.bargreybars_auto='0'
+vim.g.gruvbox_transparent_bg=1
+vim.g.bargreybars_auto=0
 
 vim.g["airline_solorized_bg"]='dark'
 vim.g["airline_powerline_fonts"]=1
