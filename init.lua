@@ -1,124 +1,180 @@
 
 require('packer').startup(function(use)
-	use { 'wbthomason/packer.nvim' }
- 	use { 'morhetz/gruvbox' }
-	use 'vim-airline/vim-airline'
-	use 'vim-airline/vim-airline-themes'
-	use 'scrooloose/nerdtree'
-	use 'scrooloose/nerdcommenter'
-	use 'sheerun/vim-polyglot'
-	use 'jiangmiao/auto-pairs'
-	use {'neoclide/coc.nvim', branch = 'release'}
-	use 'tpope/vim-fugitive'
+    use { 'wbthomason/packer.nvim' }
+    use { 'morhetz/gruvbox' }
+    use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
+    use 'scrooloose/nerdtree'
+    use 'scrooloose/nerdcommenter'
+    use 'sheerun/vim-polyglot'
+    use 'jiangmiao/auto-pairs'
+    use {'neoclide/coc.nvim', branch = 'release'}
+    use 'tpope/vim-fugitive'
 
-	-- use 'leafgarland/typescript-vim', { 'for': 'typescript' }
-	-- use 'peitalin/vim-jsx-typescript', { 'for': ['jsx', 'typescript'] }
-	-- use 'yuezk/vim-js', { 'for': ['js', 'javascript'] }
-	-- use 'pangloss/vim-javascript', { 'for': ['js', 'javascript'] }
-	-- use 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	-- use 'junegunn/fzf.vim'
-	-- Plug 'tpope/vim-fugitive'
-	-- Plug 'tpope/vim-fugitive'
+    -- use 'leafgarland/typescript-vim', { 'for': 'typescript' }
+    -- use 'peitalin/vim-jsx-typescript', { 'for': ['jsx', 'typescript'] }
+    -- use 'yuezk/vim-js', { 'for': ['js', 'javascript'] }
+    -- use 'pangloss/vim-javascript', { 'for': ['js', 'javascript'] }
+    -- use 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    -- use 'junegunn/fzf.vim'
+    -- Plug 'tpope/vim-fugitive'
+    -- Plug 'tpope/vim-fugitive'
 
-	use 'axelf4/vim-strip-trailing-whitespace'
-	use 'ethanholz/nvim-lastplace'
-	use 'wellle/context.vim'
-	use 'dstein64/vim-startuptime'
-	-- use 'ryanoasis/vim-devicons'
-	use 'nvim-tree/nvim-web-devicons'
-	use 'mhinz/vim-signify'
+    use 'axelf4/vim-strip-trailing-whitespace'
+    use 'ethanholz/nvim-lastplace'
+    use 'wellle/context.vim'
+    use 'dstein64/vim-startuptime'
+    -- use 'ryanoasis/vim-devicons'
+    use 'nvim-tree/nvim-web-devicons'
+    use 'mhinz/vim-signify'
 
-	use ({
-		'Pocco81/auto-save.nvim',
-		config = function()
-			require("auto-save").setup()
-		end,
-	})
+    use ({
+            'Pocco81/auto-save.nvim',
+            config = function()
+                require("auto-save").setup()
+            end,
+        })
 
-	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
 
-	use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	-- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-	}
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
 
 end)
 
 require'nvim-web-devicons'.setup {
- -- your personnal icons can go here (to override)
- -- you can specify color or cterm_color instead of specifying both of them
- -- DevIcon will be appended to `name`
- override = {
-  zsh = {
-    icon = "",
-    color = "#428850",
-    cterm_color = "65",
-    name = "Zsh"
-  }
- };
- -- globally enable different highlight colors per icon (default to true)
- -- if set to false all icons will have the default icon's color
- color_icons = true;
- -- globally enable default icons (default to false)
- -- will get overriden by `get_icons` option
- default = true;
- -- globally enable "strict" selection of icons - icon will be looked up in
- -- different tables, first by filename, and if not found by extension; this
- -- prevents cases when file doesn't have any extension but still gets some icon
- -- because its name happened to match some extension (default to false)
- strict = true;
- -- same as `override` but specifically for overrides by filename
- -- takes effect when `strict` is true
- override_by_filename = {
-  [".gitignore"] = {
-    icon = "",
-    color = "#f1502f",
-    name = "Gitignore"
-  }
- };
- -- same as `override` but specifically for overrides by extension
- -- takes effect when `strict` is true
- override_by_extension = {
-  ["log"] = {
-    icon = "",
-    color = "#81e043",
-    name = "Log"
-  }
- };
+    -- your personnal icons can go here (to override)
+    -- you can specify color or cterm_color instead of specifying both of them
+    -- DevIcon will be appended to `name`
+    override = {
+        zsh = {
+            icon = "",
+            color = "#428850",
+            cterm_color = "65",
+            name = "Zsh"
+        }
+    };
+    -- globally enable different highlight colors per icon (default to true)
+    -- if set to false all icons will have the default icon's color
+    color_icons = true;
+    -- globally enable default icons (default to false)
+    -- will get overriden by `get_icons` option
+    default = true;
+    -- globally enable "strict" selection of icons - icon will be looked up in
+    -- different tables, first by filename, and if not found by extension; this
+    -- prevents cases when file doesn't have any extension but still gets some icon
+    -- because its name happened to match some extension (default to false)
+    strict = true;
+    -- same as `override` but specifically for overrides by filename
+    -- takes effect when `strict` is true
+    override_by_filename = {
+        [".gitignore"] = {
+            icon = "",
+            color = "#f1502f",
+            name = "Gitignore"
+        }
+    };
+    -- same as `override` but specifically for overrides by extension
+    -- takes effect when `strict` is true
+    override_by_extension = {
+        ["log"] = {
+            icon = "",
+            color = "#81e043",
+            name = "Log"
+        }
+    };
 }
 
 vim.api.nvim_exec(
-[[
-	" Options
-	filetype plugin indent on   " Allow auto-indenting depending on file type
-	syntax on
+    [[
+    " Options
+    filetype plugin indent on   " Allow auto-indenting depending on file type
+    syntax on
 
-	let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+    let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-clangd']
 
-	let g:go_metalinter_enabled = []
+    let g:go_metalinter_enabled = []
 
-	" use <tab> for trigger completion and navigate to the next complete item
-	" https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#use-tab-or-custom-key-for-trigger-completion
+    " use <tab> for trigger completion and navigate to the next complete item
+    " https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#use-tab-or-custom-key-for-trigger-completion
 
-	function! CheckBackspace() abort
-	  let col = col('.') - 1
-	  return !col || getline('.')[col - 1]  =~# '\s'
-	endfunction
+    function! CheckBackspace() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~# '\s'
+    endfunction
 
-	inoremap <silent><expr> <Tab>
-		  \ coc#pum#visible() ? coc#pum#next(1) :
-		  \ CheckBackspace() ? "\<Tab>" :
-		  \ coc#refresh()
+    inoremap <silent><expr> <Tab>
+          \ coc#pum#visible() ? coc#pum#next(1) :
+          \ CheckBackspace() ? "\<Tab>" :
+          \ coc#refresh()
 
-	inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+    inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
+    function! Formatonsave()
+      let l:formatdiff = 1
+      pyf /usr/bin/clang-format.py
+    endfunction
+    autocmd InsertLeave *.h,*.cc,*.cpp,*.c call Formatonsave()
+    " autocmd TextChanged *.h,*.cc,*.cpp,*.c call Formatonsave()
+
+    " Restore cursor position, window position, and last search after running a
+    " command.
+    function! Preserve(command)
+      " Save the last search.
+      let search = @/
+
+      " Save the current cursor position.
+      let cursor_position = getpos('.')
+
+      " Save the current window position.
+      normal! H
+      let window_position = getpos('.')
+      call setpos('.', cursor_position)
+
+      " Execute the command.
+      execute a:command
+
+      " Restore the last search.
+      let @/ = search
+
+      " Restore the previous window position.
+      call setpos('.', window_position)
+      normal! zt
+
+      " Restore the previous cursor position.
+      call setpos('.', cursor_position)
+    endfunction
+
+    " Re-indent the whole buffer.
+    function! IndentBuffer()
+      call Preserve('normal gg=G')
+    endfunction
+
+    autocmd InsertLeave *.* call IndentBuffer()
+    " autocmd TextChanged *.* call IndentBuffer()
+
 ]],
-true)
+    true)
 
 -- speed up scrolling in vim
 vim.o.ttyfast = true
@@ -132,7 +188,7 @@ vim.o.hidden = true
 -- Enables the clipboard between Vim/Neovim and other applications.
 vim.opt.clipboard = 'unnamedplus'
 
- -- Highlights the current line in the editor
+-- Highlights the current line in the editor
 vim.wo.cursorline = true
 
 -- Show replacements in a split screen
@@ -149,8 +205,11 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- tab settings
-vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smarttab = true
 
 -- spell checking
 vim.opt.spell = true
@@ -169,10 +228,10 @@ vim.o.splitbelow = true
 vim.o.wildmenu = true
 
 vim.api.nvim_exec(
-[[
+    [[
 colorscheme gruvbox
 ]],
-true)
+    true)
 
 vim.g.gruvbox_transparent_bg=1
 vim.g.bargreybars_auto=0
@@ -226,3 +285,22 @@ nnoremap <Tab> gt
 nnoremap <silent> <S-t> :tabnew<CR>
 --]]
 
+-- Lua
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+    {silent = true, noremap = true}
+    )
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+    {silent = true, noremap = true}
+    )
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+    {silent = true, noremap = true}
+    )
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+    {silent = true, noremap = true}
+    )
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+    {silent = true, noremap = true}
+    )
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+    {silent = true, noremap = true}
+    )
