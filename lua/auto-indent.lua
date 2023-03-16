@@ -35,7 +35,7 @@ vim.api.nvim_exec(
 
     endfunction
 
-    autocmd InsertLeave *.lua call IndentBuffer()
+    autocmd InsertLeave *.* call IndentBuffer()
 
     " autocmd TextChanged *.* call IndentBuffer()
     ]],

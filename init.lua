@@ -1,6 +1,5 @@
 require("plugins")
 require("mappings")
 require("config")
-require("auto-complete")
 require("auto-indent")
 require("plugins-config")

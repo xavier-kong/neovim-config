@@ -7,7 +7,7 @@ require('packer').startup(function(use)
 
     use 'sheerun/vim-polyglot'
 
-    use 'jiangmiao/auto-pairs'
+    -- use 'jiangmiao/auto-pairs'
 
     use 'tpope/vim-fugitive' use 'leafgarland/typescript-vim'
 
@@ -29,9 +29,16 @@ require('packer').startup(function(use)
 
     use 'folke/tokyonight.nvim'
 
+    use 'onsails/lspkind.nvim'
+
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
     }
 
     use ({
@@ -87,7 +94,7 @@ require('packer').startup(function(use)
     }
 
     ---- https://github.com/utilyre/barbecue.nvim
-        use({
+    use({
             "utilyre/barbecue.nvim",
             tag = "*",
             requires = {
