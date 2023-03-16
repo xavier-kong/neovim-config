@@ -1,0 +1,7 @@
+require("plugins-config.bufferline")
+require("plugins-config.lsp-colors")
+require("plugins-config.lsp")
+require("plugins-config.lualine")
+require("plugins-config.nvim-treesitter")
+require("plugins-config.nvim-web-devicons")
+require("plugins-config.cmp")
