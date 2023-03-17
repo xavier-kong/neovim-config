@@ -1,79 +1,112 @@
-require('packer').startup(function(use)
+-- docs at https://github.com/folke/lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-    use { 'wbthomason/packer.nvim' }
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
 
-    use { 'morhetz/gruvbox' }
-    use 'scrooloose/nerdtree' use 'scrooloose/nerdcommenter'
+require("lazy").setup({
+    --         { 'wbthomason/packer.nvim' },
 
-    use 'sheerun/vim-polyglot'
+    'lewis6991/impatient.nvim',
 
-    -- use 'jiangmiao/auto-pairs'
+    { 'morhetz/gruvbox' },
 
-    use 'tpope/vim-fugitive' use 'leafgarland/typescript-vim'
+    'scrooloose/nerdtree',
 
-    use 'junegunn/fzf.vim'
 
-    use 'pangloss/vim-javascript'
+    'scrooloose/nerdcommenter',
 
-    use 'axelf4/vim-strip-trailing-whitespace'
+    -- 'sheerun/vim-polyglot',
 
-    use 'ethanholz/nvim-lastplace'
+    'tpope/vim-fugitive',
 
-    use 'dstein64/vim-startuptime'
+    {
+        'leafgarland/typescript-vim',
+        lazy = true
+    },
 
-    use 'nvim-tree/nvim-web-devicons'
+    'junegunn/fzf.vim',
 
-    use 'mhinz/vim-signify'
+    {
+        'pangloss/vim-javascript',
+        lazy = true
+    },
 
-    use 'folke/lsp-colors.nvim'
+    'axelf4/vim-strip-trailing-whitespace',
 
-    use 'folke/tokyonight.nvim'
+    'ethanholz/nvim-lastplace',
 
-    use 'onsails/lspkind.nvim'
+    'dstein64/vim-startuptime',
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+    'nvim-tree/nvim-web-devicons',
 
-    use {
+    'mhinz/vim-signify',
+
+    'folke/lsp-colors.nvim',
+
+    {
+        'folke/tokyonight.nvim',
+        lazy = false
+    },
+
+    'onsails/lspkind.nvim',
+
+    {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
-    }
+    },
 
-    use ({
-            'Pocco81/auto-save.nvim',
-            config = function()
-                require("auto-save").setup()
-            end,
-        })
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+    },
 
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    {
+        'Pocco81/auto-save.nvim',
+        config = function()
+            require("auto-save").setup()
+        end,
+    },
 
-    use {
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make'
+    },
+
+    {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+        build = ':TSUpdate'
+    },
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    {
+        'nvim-telescope/telescope.nvim',
+        version = '0.1.1',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
+        dependencies = { 'nvim-lua/plenary.nvim'}
+    },
 
-    use {
+    {
         "folke/trouble.nvim",
-        requires = "nvim-tree/nvim-web-devicons",
+        dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("trouble").setup {}
         end
-    }
+    },
 
     -- LSP
-    use {
+    {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
-        requires = {
+        version = 'v1.x',
+        dependencies = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
             {'williamboman/mason.nvim'},           -- Optional
@@ -91,23 +124,34 @@ require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},             -- Required
             {'rafamadriz/friendly-snippets'}, -- Optional
         }
-    }
+    },
 
     ---- https://github.com/utilyre/barbecue.nvim
-    use({
-            "utilyre/barbecue.nvim",
-            tag = "*",
-            requires = {
-                "SmiteshP/nvim-navic",
-                "nvim-tree/nvim-web-devicons", -- optional dependency
-            },
-            after = "nvim-web-devicons", -- keep this if you're using NvChad
-            config = function()
-                require("barbecue").setup()
-            end,
-        })
-    -- https://github.com/akinsho/bufferline.nvim
-    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+    ({
+        "utilyre/barbecue.nvim",
+        version = "*",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        -- after = "tokyonight", -- keep this if you're using NvChad
+        config = function()
+            require("barbecue").setup()
+        end,
+    }),
 
-end)
+    -- https://github.com/akinsho/bufferline.nvim
+    {
+        'akinsho/bufferline.nvim',
+        version = "v3.*",
+        dependencies = 'nvim-tree/nvim-web-devicons'
+    },
+
+    {
+        'nmac427/guess-indent.nvim',
+        config = function() require('guess-indent').setup {} end,
+    },
+})
+
+require('impatient')
 

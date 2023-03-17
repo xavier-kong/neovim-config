@@ -1,5 +1,17 @@
 require("plugins")
 require("mappings")
 require("config")
-require("auto-indent")
 require("plugins-config")
+
+local function SavePos()
+    local view = vim.fn.winsaveview()
+    vim.cmd [[ normal! gg=G`` ]]
+    vim.fn.winrestview(view)
+end
+
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+    pattern = { "*.*" },
+    callback = function()
+        SavePos()
+    end
+})
