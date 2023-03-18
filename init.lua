@@ -10,7 +10,7 @@ local function SavePos()
 end
 
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-    pattern = { "*.*" },
+    pattern = { "*.lua", "*.c", "*.h" },
     callback = function()
         SavePos()
     end
