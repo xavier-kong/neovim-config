@@ -2,8 +2,9 @@
 vim.opt.signcolumn = 'yes';
 
 vim.diagnostic.config({
-        virtual_text = true,
-    })
+    -- virtual_text = true,
+    virtual_lines = true
+})
 
 vim.cmd[[colorscheme tokyonight-moon]]
 
@@ -71,12 +72,12 @@ vim.o.wildmenu = true
 
 -- not quite sure what these settings do
 vim.api.nvim_exec(
-    [[
-    " Options
+[[
+" Options
 "    filetype plugin indent on   " Allow auto-indenting depending on file type
 "    syntax on
 "    syntax sync minlines=256
 
-    ]],
-    true)
+]],
+true)
 
