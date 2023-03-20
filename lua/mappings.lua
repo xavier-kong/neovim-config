@@ -8,7 +8,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<leader>z", ":NERDTreeToggle<CR>")
-map("n", "<leader>w", ":bd<CR>")
+map("n", "<leader>q", ":bd<CR>")
 map("n", "<C-K>", ":bnext<CR>")
 map("n", "<C-J>", ":bprev<CR>")
 
