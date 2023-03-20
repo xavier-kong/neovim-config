@@ -10,9 +10,16 @@ local function SavePos()
 end
 
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-    pattern = { "*.lua", "*.c", "*.h" },
+    pattern = { "*.lua", "*.c", "*.h", "*.js", "*.ts" },
     callback = function()
         SavePos()
+    end
+})
+
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+    pattern = { "*" },
+    callback = function()
+        vim.diagnostic.open_float({ scope = "line" })
     end
 })
 

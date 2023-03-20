@@ -1,5 +1,5 @@
 -- Functional wrapper for mapping custom keybindings
-function map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
     local options = {}
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -7,8 +7,8 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map("n", "<F5>", ":NERDTreeToggle<CR>")
-map("n", "<F4>", ":bd<CR>")
+map("n", "<leader>z", ":NERDTreeToggle<CR>")
+map("n", "<C-w>", ":bd<CR>")
 map("n", "<C-K>", ":bnext<CR>")
 map("n", "<C-J>", ":bprev<CR>")
 
@@ -21,22 +21,22 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- Lua
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
-    {silent = true, noremap = true}
-    )
+{silent = true, noremap = true}
+)
 vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-    {silent = true, noremap = true}
-    )
+{silent = true, noremap = true}
+)
 vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
-    {silent = true, noremap = true}
-    )
+{silent = true, noremap = true}
+)
 vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
-    {silent = true, noremap = true}
-    )
+{silent = true, noremap = true}
+)
 vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
-    {silent = true, noremap = true}
-    )
+{silent = true, noremap = true}
+)
 vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-    {silent = true, noremap = true}
-    )
+{silent = true, noremap = true}
+)
 
 
