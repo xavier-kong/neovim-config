@@ -5,22 +5,22 @@ local lspkind = require('lspkind')
 -- If you want insert `(` after select function or method item
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
-        'confirm_done',
-        cmp_autopairs.on_confirm_done()
-        )
+'confirm_done',
+cmp_autopairs.on_confirm_done()
+)
 
 cmp.setup {
         formatting = {
                 format = lspkind.cmp_format({
-                                mode = "symbol_text",
-                                menu = ({
-                                                buffer = "[Buffer]",
-                                                nvim_lsp = "[LSP]",
-                                                luasnip = "[LuaSnip]",
-                                                nvim_lua = "[Lua]",
-                                                latex_symbols = "[Latex]",
-                                        })
-                        }),
+                        mode = "symbol_text",
+                        menu = ({
+                                buffer = "[Buffer]",
+                                nvim_lsp = "[LSP]",
+                                luasnip = "[LuaSnip]",
+                                nvim_lua = "[Lua]",
+                                latex_symbols = "[Latex]",
+                        })
+                }),
         },
         completion = {
                 completeopt = 'menu,menuone,noinsert'
@@ -36,7 +36,7 @@ cmp.setup {
                                 fallback()
                         end
                 end, {'i', 's'}),
-}
+        }
 }
 
 
