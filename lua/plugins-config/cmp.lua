@@ -10,6 +10,7 @@ cmp_autopairs.on_confirm_done()
 )
 
 cmp.setup {
+        preselect = 'none',
         formatting = {
                 format = lspkind.cmp_format({
                         mode = "symbol_text",
@@ -23,7 +24,7 @@ cmp.setup {
                 }),
         },
         completion = {
-                completeopt = 'menu,menuone,noinsert'
+                completeopt = 'menu,menuone,noinsert,noselect'
         },
         mapping = {
                 ["<S-Tab>"] = cmp.mapping.select_prev_item(),

@@ -18,13 +18,6 @@ lsp.ensure_installed({
 
 lsp.nvim_workspace()
 
-lsp.setup_nvim_cmp({
-                preselect = 'none',
-                completion = {
-                                completeopt = 'menu,menuone,noinsert,noselect'
-                }
-})
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
                 virtual_text = false
