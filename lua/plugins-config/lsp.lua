@@ -13,7 +13,9 @@ lsp.ensure_installed({
                 'eslint',
                 'html',
                 'jsonls',
-                'clangd'
+                'clangd',
+                'rust_analyzer',
+
 })
 
 lsp.nvim_workspace()
