@@ -7,7 +7,7 @@ local lsp = require('lsp-zero').preset({
 
 -- (Optional) Configure lua language server for neovim
 -- lsp.nvim_workspace()
-
+-- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 lsp.ensure_installed({
                 'tsserver',
                 'eslint',
@@ -15,7 +15,7 @@ lsp.ensure_installed({
                 'jsonls',
                 'clangd',
                 'rust_analyzer',
-
+                'gopls',
 })
 
 lsp.nvim_workspace()

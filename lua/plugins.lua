@@ -152,12 +152,12 @@ require("lazy").setup({
         config = function() require('guess-indent').setup {} end,
     },
 
-    {
+    --[[{
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         config = function()
             require("lsp_lines").setup()
         end,
-    }
+    }]]
 })
 
 require('impatient')
