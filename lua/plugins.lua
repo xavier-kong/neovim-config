@@ -152,12 +152,20 @@ require("lazy").setup({
         config = function() require('guess-indent').setup {} end,
     },
 
-    --[[{
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    {
+        "ray-x/go.nvim",
+        dependencies = {
+            "ray-x/guihua.lua",
+            "neovim/nvim-lspconfig",
+            "nvim-treesitter/nvim-treesitter",
+        },
         config = function()
-            require("lsp_lines").setup()
+            require("go").setup()
         end,
-    }]]
+        event = {"CmdlineEnter"},
+        ft = {"go", 'gomod'},
+        build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    }
 })
 
 require('impatient')
