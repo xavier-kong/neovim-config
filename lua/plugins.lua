@@ -41,7 +41,9 @@ require("lazy").setup({
         lazy = true
     },
 
-    'axelf4/vim-strip-trailing-whitespace',
+    --'axelf4/vim-strip-trailing-whitespace',
+
+    'lukoshkin/trailing-whitespace',
 
     'ethanholz/nvim-lastplace',
 

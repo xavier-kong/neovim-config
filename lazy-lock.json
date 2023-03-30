@@ -35,11 +35,11 @@
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
   "telescope.nvim": { "branch": "master", "commit": "c1a2af0af69e80e14e6b226d3957a064cd080805" },
   "tokyonight.nvim": { "branch": "main", "commit": "1b0c88094548a62641ece1e668fa9a234e1c539e" },
+  "trailing-whitespace": { "branch": "master", "commit": "2d4aeb132973da15edbe0d093ce836563ee2aef1" },
   "trouble.nvim": { "branch": "main", "commit": "7915277a259fdff5d46c6f1d2e100df2ec384d3b" },
   "typescript-vim": { "branch": "master", "commit": "52f3ca3474d51f5021696ffb7297d989e49121ac" },
   "vim-fugitive": { "branch": "master", "commit": "309c68117eca3a95349093012e5886a184c1812d" },
   "vim-javascript": { "branch": "master", "commit": "c470ce1399a544fe587eab950f571c83cccfbbdc" },
   "vim-signify": { "branch": "master", "commit": "a05e63ba72411977f5087c27c1564c9287bfab66" },
-  "vim-startuptime": { "branch": "master", "commit": "6580cf539c33a212f4f5542068a3b4dd2b3ad834" },
-  "vim-strip-trailing-whitespace": { "branch": "master", "commit": "59385775cbe416b2797ec5e2c7eb445a3398dd46" }
+  "vim-startuptime": { "branch": "master", "commit": "6580cf539c33a212f4f5542068a3b4dd2b3ad834" }
 }
