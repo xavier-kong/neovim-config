@@ -16,6 +16,7 @@ lsp.ensure_installed({
                 'clangd',
                 'rust_analyzer',
                 'gopls',
+                'tailwindcss'
 })
 
 lsp.nvim_workspace()
