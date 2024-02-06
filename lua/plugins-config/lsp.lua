@@ -16,8 +16,11 @@ lsp.ensure_installed({
                 'clangd',
                 'rust_analyzer',
                 'gopls',
-                'tailwindcss'
+                'tailwindcss',
+                'cssls'
 })
+
+lsp.skip_server_setup({'rust_analyzer'})
 
 lsp.nvim_workspace()
 
@@ -29,4 +32,28 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 
 lsp.setup()
 
+local rust_tools = require('rust-tools')
 
+rust_tools.setup({
+                tools = {
+                                autoSetHints = true
+                },
+                server = {
+                                --standalone = true,
+                                on_attach = function(_, bufnr)
+                                                vim.keymap.set('n', '<leader>ca', rust_tools.hover_actions.hover_actions, {buffer = bufnr})
+                                end
+                },
+                ["rust-analyzer"] = {
+                                assist = {
+                                                importEnforceGranularity = true,
+                                                importPrefix = "create"
+                                },
+                                cargo = { allFeatures = true },
+                                checkOnSave = {
+                                                -- default: `cargo check`
+                                                --command = "clippy",
+                                                allFeatures = true
+                                }
+                },
+})
