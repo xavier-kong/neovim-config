@@ -41,7 +41,7 @@ require("lazy").setup({ --         { 'wbthomason/packer.nvim' },
 --'axelf4/vim-strip-trailing-whitespace',
 
 --[[{
-'lukoshkin/trailing-whitespace'
+    'lukoshkin/trailing-whitespace'
 },]]
 
 'ethanholz/nvim-lastplace',
@@ -179,7 +179,12 @@ require("lazy").setup({ --         { 'wbthomason/packer.nvim' },
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         opts = {} -- this is equalent to setup({}) function
-    }
+    },
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        'MunifTanjim/prettier.nvim',
+    },
+
 })
 
 require("go").setup()

@@ -11,9 +11,16 @@ local function SavePos()
 end
 
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-    pattern = { "*.lua", "*.c", "*.h", "*.js", "*.ts", "*.rs", "*.tsx", ".css" },
+    pattern = { "*.lua", "*.c", "*.h", "*.js", "*.ts", "*.rs", "*.tsx", "*.css" },
     callback = function()
         SavePos()
+    end
+})
+
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+    pattern = { "*.astro" },
+    callback = function ()
+        vim.cmd(":Prettier")
     end
 })
 
