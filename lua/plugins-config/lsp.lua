@@ -17,7 +17,8 @@ lsp.ensure_installed({
                 'rust_analyzer',
                 'gopls',
                 'tailwindcss',
-                'cssls'
+                'cssls',
+                'pyright'
 })
 
 lsp.skip_server_setup({'rust_analyzer'})
